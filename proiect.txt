@@ -1,0 +1,49 @@
+data(swiss)
+str(swiss)
+boxplot(swiss)
+var(swiss$Fertility)
+exp(swiss$Fertility)
+
+
+#quartile
+quantile(swiss$Catholic)
+quantile(swiss$Fertility)
+quantile(swiss$Agriculture)
+quantile(swiss$Examination)
+quantile(swiss$Education)
+quantile(swiss$Infant.Mortality)
+#summary
+summary(swiss$Catholic)
+summary(swiss$Fertility)
+summary(swiss$Agriculture)
+summary(swiss$Examination)
+summary(swiss$Education)
+summary(swiss$Infant.Mortality)
+#cor
+cor(swiss)
+#boxplot 
+
+#regresie simpla 
+scatter.smooth(x=swiss$Fertility, y=swiss$Agriculture, main="Fertility ~ Agriculture")
+scatter.smooth(x=swiss$Fertility, y=swiss$Education, main="Fertility ~ Education")
+
+
+f1<-lm(Fertility~Education, data=swiss)
+abline(f1,col="magenta")
+aic1<-AIC(f1)
+bic1<-BIC(f1)
+aic1
+bic1
+f2<-lm(Fertility~Agriculture, data=swiss)
+abline(f2,col="magenta")
+aic2<-AIC(f2)
+bic2<-BIC(f2)
+aic2
+bic2
+#regresie multipla
+ft<-lm(Fertility~Education+Catholic, data=swiss)
+summary(ft)
+aict<-AIC(ft)
+bict<-BIC(ft)
+aict
+bict
